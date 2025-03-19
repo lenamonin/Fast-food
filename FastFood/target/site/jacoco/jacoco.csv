@@ -1,0 +1,90 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+FastFood,product,Product,0,77,0,8,0,24,0,12,0,8
+FastFood,product.burger,BaconBurgerFactory,0,37,0,0,0,8,0,2,0,2
+FastFood,product.burger,BurgerFactory,0,60,0,0,0,15,0,12,0,12
+FastFood,product.burger,CheeseBurgerFactory,0,43,0,0,0,9,0,2,0,2
+FastFood,product.burger,HamburgerFactory,0,37,0,0,0,8,0,2,0,2
+FastFood,product.burger,BurgerDecorator,0,9,0,0,0,3,0,1,0,1
+FastFood,product.burger,Ketchup,0,17,0,0,0,4,0,3,0,3
+FastFood,product.burger,Oignon,0,17,0,0,0,4,0,3,0,3
+FastFood,product.burger,Tomate,0,17,0,0,0,4,0,3,0,3
+FastFood,product.burger,Bacon,0,17,0,0,0,4,0,3,0,3
+FastFood,product.burger,Steack,0,17,0,0,0,4,0,3,0,3
+FastFood,product.burger,VeggieFactory,0,37,0,0,0,8,0,2,0,2
+FastFood,product.burger,Burger,0,27,0,2,0,7,0,4,0,3
+FastFood,product.burger,DoubleCheeseFactory,0,49,0,0,0,10,0,2,0,2
+FastFood,product.burger,Cheddar,0,17,0,0,0,4,0,3,0,3
+FastFood,product.burger,Poulet,0,17,0,0,0,4,0,3,0,3
+FastFood,product.burger,ChickenBurgerFactory,0,43,0,0,0,9,0,2,0,2
+FastFood,product.drink,Drink,0,9,0,0,0,3,0,2,0,2
+FastFood,product.drink,DrinkFactory,12,21,0,0,2,4,2,4,2,4
+FastFood,product.dessert,DessertFactory,18,21,0,0,3,4,3,4,3,4
+FastFood,product.dessert,Dessert,0,9,0,0,0,3,0,2,0,2
+FastFood,KitchenUI,OrderListFrame,129,0,2,0,29,0,4,0,3,0
+FastFood,KitchenUI,MainKitchenUI,92,0,0,0,25,0,4,0,4,0
+FastFood,KitchenUI,OrderDetailPanel,532,0,8,0,103,0,10,0,6,0
+FastFood,KitchenUI,OrderDetailPanel.new MouseAdapter() {...},11,0,0,0,3,0,2,0,2,0
+FastFood,KitchenUI,OrderDetailPanel.new MouseAdapter() {...},11,0,0,0,3,0,2,0,2,0
+FastFood,KitchenUI,OrderDetailPanel.new MouseAdapter() {...},11,0,0,0,3,0,2,0,2,0
+FastFood,KitchenUI,OrderElement.new MouseAdapter() {...},11,0,0,0,3,0,2,0,2,0
+FastFood,KitchenUI,OrderElement,116,0,0,0,25,0,3,0,3,0
+FastFood,menu,MenuVegetarienFactory,0,29,0,0,0,6,0,2,0,2
+FastFood,menu,MenuDoubleFactory,0,35,0,0,0,7,0,2,0,2
+FastFood,menu,MenuClassiqueFactory,0,29,0,0,0,6,0,2,0,2
+FastFood,menu,Menu,0,54,0,2,0,15,0,7,0,6
+FastFood,menu,MenuFactory,0,3,0,0,0,1,0,1,0,1
+FastFood,id.fastfood,FastFood,37,0,0,0,9,0,2,0,2,0
+FastFood,user,Compte,3,18,0,0,1,6,1,3,1,3
+FastFood,BorneUI,CreateAccountFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,CreateAccountFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,MainBorneUI,3,110,0,2,1,34,1,10,1,9
+FastFood,BorneUI,MenuItemComponent,0,120,0,0,0,27,0,3,0,3
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,PaymentFrame.new ActionListener() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,SelectMenusFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,SelectMenusFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,SelectMenusFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,ChoiceFrame,12,323,0,0,6,79,4,2,4,2
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,PaymentFrame.new ActionListener() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,SelectProductsFrame,48,691,0,0,12,132,6,13,6,13
+FastFood,BorneUI,CreateAccountFrame,57,256,2,2,12,54,4,7,2,7
+FastFood,BorneUI,SelectMenusFrame,0,163,0,0,0,34,0,5,0,5
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},5,6,0,0,2,1,1,1,1,1
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},5,6,0,0,2,1,1,1,1,1
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},5,6,0,0,2,1,1,1,1,1
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,PaymentFrame,0,211,0,0,0,60,0,5,0,5
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,EditOrderFrame,0,71,0,0,0,19,0,4,0,4
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},5,6,0,0,2,1,1,1,1,1
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,ProductItemComponent.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},5,6,0,0,2,1,1,1,1,1
+FastFood,BorneUI,SelectProductsFrame.new MouseAdapter() {...},5,6,0,0,2,1,1,1,1,1
+FastFood,BorneUI,acceuilFrame.new ActionListener() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,acceuilFrame.new ActionListener() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,acceuilFrame.new ActionListener() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,OrderResumeFrame.new ActionListener() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,OrderResumeFrame.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,acceuilFrame.new MouseAdapter() {...},5,6,0,0,2,1,1,1,1,1
+FastFood,BorneUI,MenuItemComponent.new MouseAdapter() {...},0,11,0,0,0,3,0,2,0,2
+FastFood,BorneUI,OrderResumeFrame.new ActionListener() {...},5,6,0,0,2,1,1,1,1,1
+FastFood,BorneUI,OrderResumeFrame.new MouseAdapter() {...},5,6,0,0,2,1,1,1,1,1
+FastFood,BorneUI,ProductItemComponent,3,111,0,0,2,22,1,3,1,3
+FastFood,BorneUI,ChoiceFrame.new ActionListener() {...},5,6,0,0,2,1,1,1,1,1
+FastFood,BorneUI,acceuilFrame,8,401,0,10,3,106,1,12,1,7
+FastFood,BorneUI,ChoiceFrame.new MouseAdapter() {...},5,6,0,0,2,1,1,1,1,1
+FastFood,BorneUI,ChoiceFrame.new ActionListener() {...},5,6,0,0,2,1,1,1,1,1
+FastFood,BorneUI,ChoiceFrame.new MouseAdapter() {...},5,6,0,0,2,1,1,1,1,1
+FastFood,BorneUI,OrderResumeFrame,41,335,2,4,10,71,3,9,2,7
+FastFood,BorneUI,OrderSummaryFrame,34,246,0,6,11,44,1,7,1,4
+FastFood,order,Order,4,206,2,14,0,49,2,20,0,14
+FastFood,order,OrderManager,0,71,0,2,0,26,0,10,0,9
+FastFood,order,OrderListManager,0,67,0,6,0,20,0,8,0,5

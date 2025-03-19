@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BurgerFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FastFood</a> &gt; <a href="index.source.html" class="el_package">product.burger</a> &gt; <span class="el_source">BurgerFactory.java</span></div><h1>BurgerFactory.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package product.burger;
+
+import product.Product;
+
+/**
+ *
+ * @author Jallais
+ */
+public abstract class BurgerFactory {
+    
+    protected double price;
+    
+<span class="fc" id="L17">    public BurgerFactory(double price) {</span>
+<span class="fc" id="L18">        this.setPrice(price);</span>
+<span class="fc" id="L19">    }</span>
+    
+    private void setPrice(double price) {
+<span class="fc" id="L22">        this.price = price;</span>
+<span class="fc" id="L23">    }</span>
+    
+    public abstract Burger getBurger();
+    
+    public static Burger addCheddar(Burger burger) {
+<span class="fc" id="L28">        return new Cheddar(burger, 0.25);</span>
+    }
+    
+    public static Product addCheddar(Product burger) {
+<span class="fc" id="L32">        return (Product)BurgerFactory.addCheddar((Burger)burger);</span>
+    }
+    
+    public static Burger addSteack(Burger burger) {
+<span class="fc" id="L36">        return new Steack(burger, 0.5);</span>
+    }
+    
+    public static Product addSteack(Product burger) {
+<span class="fc" id="L40">        return (Product)BurgerFactory.addSteack((Burger)burger);</span>
+    }
+    
+    public static Burger addOignon(Burger burger) {
+<span class="fc" id="L44">        return new Oignon(burger, 0.25);</span>
+    }
+    
+    public static Product addOignon(Product burger) {
+<span class="fc" id="L48">        return (Product)BurgerFactory.addOignon((Burger)burger);</span>
+    }
+    
+    public static Burger addTomate(Burger burger) {
+<span class="fc" id="L52">        return new Tomate(burger, 0.25);</span>
+    }
+    
+    public static Product addTomate(Product burger) {
+<span class="fc" id="L56">        return (Product)BurgerFactory.addTomate((Burger)burger);</span>
+    }
+    
+    public static Burger addKetchup(Burger burger) {
+<span class="fc" id="L60">        return new Ketchup(burger, 0.25);</span>
+    }
+    
+    public static Product addKetchup(Product burger) {
+<span class="fc" id="L64">        return (Product)BurgerFactory.addKetchup((Burger)burger);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

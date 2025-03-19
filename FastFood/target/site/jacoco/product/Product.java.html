@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Product.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FastFood</a> &gt; <a href="index.source.html" class="el_package">product</a> &gt; <span class="el_source">Product.java</span></div><h1>Product.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package product;
+import general.Describable;
+import general.Purchasable;
+import java.io.File;
+
+/**
+ *
+ * @author Jallais
+ */
+public abstract class Product implements Purchasable, Describable{
+    protected String name;  // Le nom du produit
+    protected double price;  // Le prix du produit
+    protected String image;  // Le chemin du fichier image
+    
+<span class="fc" id="L19">    public Product(String name, double price, String image) {</span>
+<span class="fc" id="L20">        this.setName(name);</span>
+<span class="fc" id="L21">        this.setPrice(price);</span>
+<span class="fc" id="L22">        this.setImage(image);</span>
+<span class="fc" id="L23">    }</span>
+    
+    protected void setName(String name) {
+<span class="fc" id="L26">        this.name = name;</span>
+<span class="fc" id="L27">    }</span>
+    
+    protected void setPrice(double price) {
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (price &lt; 0) {</span>
+<span class="fc" id="L31">            throw new IllegalArgumentException(&quot;Le prix du produit ne peut pas être négatif.&quot;);</span>
+        }
+        
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        if (price &gt;= 1000) {</span>
+<span class="fc" id="L35">            throw new IllegalArgumentException(&quot;Le prix du produit ne peut pas dépasser 999.&quot;);</span>
+        }
+        
+<span class="fc" id="L38">        this.price = price;</span>
+<span class="fc" id="L39">    }</span>
+    
+    protected void setImage(String image) {
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (image == null) {  // Si null</span>
+<span class="fc" id="L43">            throw new IllegalArgumentException(&quot;Le nom de l'image ne peut pas être null.&quot;);</span>
+        }
+        
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        if (image.isEmpty()) { // Si chaine vide</span>
+<span class="fc" id="L47">            throw new IllegalArgumentException(&quot;Le nom ne peut pas être une chaine vide.&quot;);</span>
+        }
+        
+<span class="fc" id="L50">        File file = new File(image);</span>
+        
+//        if (!file.exists()) {
+//            throw new IllegalArgumentException(&quot;L'image doit être un fichier existant.&quot;);
+//        }
+
+<span class="fc" id="L56">        this.image = image;</span>
+<span class="fc" id="L57">    }</span>
+        
+    public String getFullDescription() {
+<span class="fc" id="L60">        return this.getDescription() + &quot; : &quot; + this.getPrice() + &quot; euros&quot;;</span>
+    }
+    
+<span class="fc" id="L63">    public String getName() {return this.name;}</span>
+<span class="fc" id="L64">    public String getImage() {return this.image;}</span>
+    
+    @Override
+<span class="fc" id="L67">    public double getPrice() {return this.price;}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

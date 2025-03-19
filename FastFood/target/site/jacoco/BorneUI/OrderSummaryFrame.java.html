@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderSummaryFrame.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FastFood</a> &gt; <a href="index.source.html" class="el_package">BorneUI</a> &gt; <span class="el_source">OrderSummaryFrame.java</span></div><h1>OrderSummaryFrame.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package BorneUI;
+
+import static id.fastfood.FastFood.main;
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
+import static jdk.jshell.execution.RemoteExecutionControl.main;
+import menu.Menu;
+import order.Order;
+import order.OrderListManager;
+import order.OrderManager;
+import product.Product;
+
+/**
+ *
+ * @author HP
+ */
+public class OrderSummaryFrame extends javax.swing.JFrame {
+
+    /**
+     * Creates new form OrderSummaryFrame
+     */
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L39">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+
+<span class="nc" id="L41">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L42">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L43">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L44">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L45">            .addGap(0, 400, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L47">        layout.setVerticalGroup(</span>
+<span class="nc" id="L48">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L49">            .addGap(0, 300, Short.MAX_VALUE)</span>
+        );
+
+<span class="nc" id="L52">        pack();</span>
+<span class="nc" id="L53">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+   private MainBorneUI main; // Référence à MainBorneUI
+<span class="fc" id="L56">   public OrderSummaryFrame(MainBorneUI main,Order order) {</span>
+<span class="fc" id="L57">       this.main = main;</span>
+        // Configurer la fenêtre
+<span class="fc" id="L59">        this.setTitle(&quot;Résumé de votre commande&quot;);</span>
+<span class="fc" id="L60">        this.setSize(600, 400);</span>
+<span class="fc" id="L61">        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="fc" id="L62">        this.setLocationRelativeTo(null); // Centrer la fenêtre</span>
+<span class="fc" id="L63">        initComponents(order);</span>
+<span class="fc" id="L64">    }</span>
+
+    private void initComponents(Order order) {
+<span class="fc" id="L67">        this.setLayout(new BorderLayout());</span>
+
+        // Ajouter un label pour le titre
+<span class="fc" id="L70">        JLabel titleLabel = new JLabel(&quot;Merci pour votre commande&quot;, SwingConstants.CENTER);</span>
+<span class="fc" id="L71">        titleLabel.setFont(new Font(&quot;Arial&quot;, Font.BOLD, 16));</span>
+<span class="fc" id="L72">        this.add(titleLabel, BorderLayout.NORTH);</span>
+
+        // Créer un tableau pour afficher les produits et prix
+<span class="fc" id="L75">        String[] columnNames = {&quot;Produit(s)&quot;, &quot;Prix (€)&quot;};</span>
+<span class="fc" id="L76">        DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);</span>
+
+        // Ajouter les produits individuels au tableau
+<span class="fc" id="L79">        List&lt;Product&gt; products = order.getProducts();</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        for (Product product : products) {</span>
+<span class="fc" id="L81">            String productName = product.getDescription();</span>
+<span class="fc" id="L82">            double productPrice = product.getPrice();</span>
+<span class="fc" id="L83">            tableModel.addRow(new Object[]{productName, String.format(&quot;%.2f&quot;, productPrice)});</span>
+<span class="fc" id="L84">        }</span>
+
+        // Ajouter les menus au tableau
+<span class="fc" id="L87">        ArrayList&lt;Menu&gt; menus = order.getMenus();</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">        for (Menu menu : menus) {</span>
+<span class="fc" id="L89">            String menuName = menu.getName();</span>
+<span class="fc" id="L90">            double menuPrice = menu.getPrice();</span>
+<span class="fc" id="L91">            tableModel.addRow(new Object[]{menuName, String.format(&quot;%.2f&quot;, menuPrice)});</span>
+            
+            // Ajouter les détails des éléments du menu
+<span class="fc bfc" id="L94" title="All 2 branches covered.">            for (Product productInMenu : menu.getProducts()) {</span>
+<span class="fc" id="L95">                String productName = &quot;  - &quot; + productInMenu.getDescription(); // Indentation pour différencier les éléments du menu</span>
+<span class="fc" id="L96">                double productPrice = productInMenu.getPrice();</span>
+<span class="fc" id="L97">                tableModel.addRow(new Object[]{productName, String.format(&quot;%.2f&quot;, productPrice)});</span>
+<span class="fc" id="L98">            }</span>
+<span class="fc" id="L99">        }</span>
+
+        // Ajouter une ligne pour le total
+<span class="fc" id="L102">        tableModel.addRow(new Object[]{&quot;Total&quot;, String.format(&quot;%.2f&quot;, order.getPrice())});</span>
+
+<span class="fc" id="L104">        JTable orderTable = new JTable(tableModel);</span>
+<span class="fc" id="L105">        JScrollPane scrollPane = new JScrollPane(orderTable);</span>
+<span class="fc" id="L106">        this.add(scrollPane, BorderLayout.CENTER);</span>
+<span class="fc" id="L107">        orderTable.setEnabled(false);</span>
+<span class="fc" id="L108">        JButton closeButton = new JButton(&quot;Fermer&quot;);</span>
+<span class="fc" id="L109">        closeButton.addActionListener(e -&gt; closeAndReturnToAccueil());</span>
+<span class="fc" id="L110">        this.add(closeButton, BorderLayout.SOUTH);</span>
+<span class="fc" id="L111">    }</span>
+ private void closeAndReturnToAccueil() {
+<span class="fc" id="L113">    this.dispose(); // Fermer la fenêtre actuelle</span>
+<span class="fc" id="L114">    this.main.showChoiceFrame();</span>
+<span class="fc" id="L115">    this.main.setVisible(true);</span>
+
+<span class="fc" id="L117">}</span>
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

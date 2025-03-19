@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Menu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FastFood</a> &gt; <a href="index.source.html" class="el_package">menu</a> &gt; <span class="el_source">Menu.java</span></div><h1>Menu.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package menu;
+
+import general.Describable;
+import general.Purchasable;
+import product.Product;
+import java.util.ArrayList;
+
+public class Menu implements Purchasable, Describable {
+    private ArrayList&lt;Product&gt; products;
+    private String name;
+    private double price;
+    
+<span class="fc" id="L17">    public Menu(String name, double price) {</span>
+<span class="fc" id="L18">        this.name = name;</span>
+<span class="fc" id="L19">        this.price = price;</span>
+<span class="fc" id="L20">        this.products = new ArrayList&lt;Product&gt;();</span>
+<span class="fc" id="L21">    }</span>
+    
+    public void addProduct(Product product) {
+<span class="fc" id="L24">        this.products.add(product);</span>
+<span class="fc" id="L25">    }</span>
+    
+    public String getName() {
+<span class="fc" id="L28">        return this.name;</span>
+    }
+    
+    @Override
+    public double getPrice() {
+<span class="fc" id="L33">        return this.price;</span>
+    }
+    
+    @Override
+    public String getDescription() {
+<span class="fc" id="L38">        String chaine = this.name + &quot; (&quot; + this.price + &quot;€)\n&quot;;</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        for (Product p: this.products) {</span>
+<span class="fc" id="L40">            chaine += &quot;    -&quot; + p.getDescription() + &quot;\n&quot;;</span>
+<span class="fc" id="L41">        }</span>
+        
+<span class="fc" id="L43">        return chaine;</span>
+    }
+     public ArrayList&lt;Product&gt; getProducts() {
+<span class="fc" id="L46">        return this.products;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

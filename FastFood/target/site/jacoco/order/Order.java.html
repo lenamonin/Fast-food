@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Order.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FastFood</a> &gt; <a href="index.source.html" class="el_package">order</a> &gt; <span class="el_source">Order.java</span></div><h1>Order.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package order;
+
+import general.Purchasable;
+import general.Describable;
+import product.Product;
+import menu.Menu;
+
+import java.util.Random;
+import java.util.ArrayList;
+
+public class Order implements Purchasable, Describable {
+    private ArrayList&lt;Product&gt; products;
+    private ArrayList&lt;Menu&gt; menus;
+    private int id;
+    private String state;
+    
+<span class="fc" id="L21">    public Order(ArrayList&lt;Product&gt; products, ArrayList&lt;Menu&gt; menus) {</span>
+<span class="fc" id="L22">        this.products = products;</span>
+<span class="fc" id="L23">        this.menus = menus;</span>
+<span class="fc" id="L24">        Random random = new Random();</span>
+<span class="fc" id="L25">        this.id = random.nextInt(0, 999);</span>
+<span class="fc" id="L26">        this.state = &quot;En cours de préparation&quot;;</span>
+<span class="fc" id="L27">    }</span>
+    
+    public Order() {
+<span class="fc" id="L30">        this(new ArrayList&lt;&gt;(), new ArrayList&lt;&gt;());</span>
+<span class="fc" id="L31">    }</span>
+    
+    public void setState(String state) {
+<span class="fc" id="L34">        this.state = state;</span>
+<span class="fc" id="L35">    }</span>
+    
+    public String getName() {
+<span class="fc" id="L38">        return String.format(&quot;Commande n°%d&quot;, this.id);</span>
+    }
+    
+    public Order copy() {
+<span class="fc" id="L42">        return new Order((ArrayList&lt;Product&gt;)this.products.clone(), (ArrayList&lt;Menu&gt;)this.menus.clone());</span>
+    }
+    
+    public void clearOrder() {
+<span class="fc" id="L46">        this.menus.clear();</span>
+<span class="fc" id="L47">        this.products.clear();</span>
+<span class="fc" id="L48">    }</span>
+    
+    public void removeProduct(Product p) {
+<span class="pc bfc" id="L51" title="All 2 branches covered.">        for (int i=0; i&lt;this.products.size(); i++) {</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">            if (this.products.get(i).equals(p)) {</span>
+<span class="fc" id="L53">                this.products.remove(i);</span>
+<span class="fc" id="L54">                return;</span>
+            }
+        }
+<span class="fc" id="L57">    }</span>
+    
+    public void removeMenu(Menu m) {
+<span class="pc bfc" id="L60" title="All 2 branches covered.">        for (int i=0; i&lt;this.menus.size(); i++) {</span>
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">            if (this.menus.get(i).equals(m)) {</span>
+<span class="fc" id="L62">                this.menus.remove(i);</span>
+<span class="fc" id="L63">                return;</span>
+            }
+        }
+<span class="fc" id="L66">    }</span>
+    
+    public void addProduct(Product p) {
+<span class="fc" id="L69">        this.products.add(p);</span>
+<span class="fc" id="L70">    }</span>
+    
+    public void addMenu(Menu m) {
+<span class="fc" id="L73">        this.menus.add(m);</span>
+<span class="fc" id="L74">    }</span>
+    
+    public ArrayList&lt;Product&gt; getProducts() {
+<span class="fc" id="L77">        return this.products;</span>
+    }
+    
+    public ArrayList&lt;Menu&gt; getMenus() {
+<span class="fc" id="L81">        return this.menus;</span>
+    }
+    
+    @Override
+    public String getDescription() {
+<span class="fc" id="L86">        String chaine = &quot;Les produits : \n&quot;;</span>
+        
+<span class="fc bfc" id="L88" title="All 2 branches covered.">        for (Product p: this.products) {</span>
+<span class="fc" id="L89">            chaine += p.getDescription() + &quot;\n&quot;;</span>
+<span class="fc" id="L90">        }</span>
+        
+<span class="fc" id="L92">        chaine += &quot;\nLes menus : \n&quot;;</span>
+        
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        for (Menu m: this.menus) {</span>
+<span class="fc" id="L95">            chaine += m.getDescription() + &quot;\n&quot;;</span>
+<span class="fc" id="L96">        }</span>
+        
+<span class="fc" id="L98">        return chaine;</span>
+    }
+    
+    @Override
+    public double getPrice() {
+<span class="fc" id="L103">        double price = 0;</span>
+        
+<span class="fc bfc" id="L105" title="All 2 branches covered.">        for (Product p: this.products) {</span>
+<span class="fc" id="L106">            price += p.getPrice();</span>
+<span class="fc" id="L107">        }</span>
+        
+<span class="fc bfc" id="L109" title="All 2 branches covered.">        for (Menu m: this.menus) {</span>
+<span class="fc" id="L110">            price += m.getPrice();</span>
+<span class="fc" id="L111">        }</span>
+        
+<span class="fc" id="L113">        return price;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
